@@ -38,7 +38,7 @@ def pull_up_main_info(links: list) -> list:
     result_list = []
     count = 1
     for link in links:
-        url_id = re.findall('vacancy/(\d+)', link)
+        url_id = re.findall(r'vacancy/(\d+)', link)
         api_url = f'https://api.hh.ru/vacancies/{url_id[0]}'
         response = requests.get(api_url, headers=gen_headers())
         response_json = response.json()

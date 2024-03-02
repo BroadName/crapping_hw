@@ -1,13 +1,10 @@
 import unicodedata
 import requests
 from bs4 import BeautifulSoup
-import lxml
 from fake_headers import Headers
 import json
 import time
 import re
-from pprint import pprint
-
 
 
 def gen_headers():
@@ -49,7 +46,7 @@ for vacancy_tag in vacancy_tags:
         if city_tag.find('p', {'data-qa': 'vacancy-view-location'}):
             city = city_tag.find('p', {'data-qa': 'vacancy-view-location'})
         else:
-            city = city_tag.find('span', {'data-qa':'vacancy-view-raw-address'})
+            city = city_tag.find('span', {'data-qa': 'vacancy-view-raw-address'})
         #  Find salary
         vacancy_salary_tag = vacancy_soup.find('div', class_='bloko-columns-row')
         salary_tag = vacancy_salary_tag.find('span', {'data-qa': "vacancy-salary-compensation-type-net"})
